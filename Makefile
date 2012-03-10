@@ -4,6 +4,16 @@ BOOTSTRAP_RESPONSIVE = ./docs/assets/css/bootstrap-responsive.css
 BOOTSTRAP_RESPONSIVE_LESS = ./less/responsive.less
 LESS_COMPRESSOR ?= `which lessc`
 WATCHR ?= `which watchr`
+FRONTEND_BOOTSTRAP = ../udunnit-frontend/src/main/webapp/includes/bootstrap/
+
+default: bootstrap copy
+
+copy:
+	cp -r bootstrap/* ${FRONTEND_BOOTSTRAP}	
+
+clean:
+	rm -f docs/assets/bootstrap.zip
+	rm -rf bootstrap
 
 #
 # BUILD DOCS
@@ -25,7 +35,7 @@ docs: bootstrap
 # lessc & uglifyjs are required
 #
 
-bootstrap:
+bootstrap: clean
 	mkdir -p bootstrap/img
 	mkdir -p bootstrap/css
 	mkdir -p bootstrap/js
