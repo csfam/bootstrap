@@ -95,6 +95,21 @@
     margin-top: 5px;
     margin-bottom: 0;
   }
+  
+  input {
+    background: @offwhite;
+    
+    // Hover states
+    &:hover {
+      background-color: @white;
+    }
+    // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
+    &:focus,
+    &.focused {
+      background-color: @white;
+    }
+  }
+  
   .radio,
   .checkbox {
     margin-top: 5px;
@@ -123,23 +138,20 @@
   .search-query {
     padding: 4px 9px;
     #font > .sans-serif(13px, normal, 1);
-    color: @white;
-    color: rgba(255,255,255,.75);
-    background: #666;
-    background: rgba(255,255,255,.3);
-    border: 1px solid #111;
+    color: @grayDark;
+    background: @offwhite;
+    border: 1px solid darken(@navbarBackground, 10%);
     @shadow: inset 0 1px 2px rgba(0,0,0,.1), 0 1px 0px rgba(255,255,255,.15);
     .box-shadow(@shadow);
     .transition(none);
 
     // Placeholder text gets special styles; can't be bundled together though for some reason
-    .placeholder(@grayLighter);
+    .placeholder(@grayLight);
 
     // Hover states
     &:hover {
-      color: @white;
-      background-color: @grayLight;
-      background-color: rgba(255,255,255,.5);
+      color: @grayLight;
+      background-color: @white;
     }
     // Focus states (we use .focused since IE7-8 and down doesn't support :focus)
     &:focus,
@@ -148,7 +160,7 @@
       color: @grayDark;
       text-shadow: 0 1px 0 @white;
       background-color: @white;
-      border: 0;
+      border: 1px solid @grayLighter;
       .box-shadow(0 0 3px rgba(0,0,0,.15));
       outline: 0;
     }
@@ -198,7 +210,7 @@
   line-height: 19px;
   color: @navbarLinkColor;
   text-decoration: none;
-  text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+  text-shadow: -1px -1px 0 rgba(0,0,0,.25);
 }
 // Hover
 .navbar .nav > li > a:hover {
